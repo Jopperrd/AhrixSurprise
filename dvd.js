@@ -24,7 +24,7 @@ $(document).ready(async function () {
     setStyle(box, {
         transform: 'translate3d(' + translateX + 'px, ' + translateY + 'px, 0)',
     });
-    //await new Promise(r => setTimeout(r, 3000));
+    await new Promise(r => setTimeout(r, 3000));
     switchColor();
     init();
 
