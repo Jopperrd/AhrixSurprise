@@ -1,0 +1,18 @@
+@import url('https://fonts.cdnfonts.com/css/golden-girdle-2');
+
+body {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background-color: black;
+}
+
+#dvd {
+  position: absolute;
+  color: #fff;
+  font-family: 'Golden Girdle', sans-serif;
+  font-size: 175px;
+  height: 315px;
+  width: 676px;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./dvd.css">
+    <link rel="stylesheet" href="./crt.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./dvd.js"></script>
+    <script>
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+        navigator.mediaDevices
+            .getUserMedia({ audio: true })
+            .then(() => {
+                const source = audioContext.createBufferSource();
+                source.addEventListener('ended', () => {
+                    source.stop();
+                    audioContext.close();
+                });
+
+                const request = new XMLHttpRequest();
+
+                request.open('GET', './pokkoe.mp3', true);
+                request.responseType = 'arraybuffer';
+                request.onload = () => {
+                    audioContext.decodeAudioData(
+                        request.response,
+                        (buffer) => {
+                            source.buffer = buffer;
+                            source.connect(audioContext.destination);
+                            source.start();
+                        },
+                        (e) => {
+                            console.log('Error with decoding audio data' + e.message);
+                        });
+                }
+
+                request.send();
+            })
+            .catch(reason => console.error(`Audio permissions denied: ${reason}`));
+    </script>
+</head>
+
+<body class="crt">
+    <div id="dvd">
+        The end
+    </div>
+</body>
+
+</html>
