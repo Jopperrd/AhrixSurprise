@@ -36,15 +36,16 @@
                 request.send();
             })
             .catch(reason => console.error(`Audio permissions denied: ${reason}`));
+
+        await new Promise(r => setTimeout(r, 81 * 1000));
+        window.location.href = './dvd.html';
     </script>
 </head>
 
 <body>
-    <a href="./dvd.html">
-        <div class="content crt">
-            <img src="./volUp.png">
-        </div>
-    </a>
+    <div class="content crt">
+        <img src="./volUp.png">
+    </div>
 </body>
 
 </html>
