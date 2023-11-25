@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./crt.css">
     <script>
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
         navigator.mediaDevices
@@ -37,8 +41,9 @@
             })
             .catch(reason => console.error(`Audio permissions denied: ${reason}`));
 
-        await new Promise(r => setTimeout(r, 81 * 1000));
-        window.location.href = './dvd.html';
+
+        sleep(81 * 1000).then(() => { window.location.href = './dvd.html'; });
+        
     </script>
 </head>
 
