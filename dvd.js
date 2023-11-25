@@ -13,7 +13,7 @@ $(document).ready(async function () {
         translateY = wh / 2 - boxHeight / 2,
         xMin = -boxLeft,
         yMin = -boxTop,
-        xMax = ww - boxLeft - boxWidth,
+        xMax = ww - boxLeft - boxWidth + 12,
         yMax = wh - boxTop - boxHeight,
         request = null,
         direction = 'se',
