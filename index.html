@@ -4,9 +4,27 @@
 <head>
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./crt.css">
-    <script>        
-        navigator.mediaDevices
-            .getUserMedia({ audio: true });
+    <script>
+        function detectMob() {
+            const toMatch = [
+                /Android/i,
+                /webOS/i,
+                /iPhone/i,
+                /iPad/i,
+                /iPod/i,
+                /BlackBerry/i,
+                /Windows Phone/i
+            ];
+            
+            return toMatch.some((toMatchItem) => {
+                return navigator.userAgent.match(toMatchItem);
+            });
+        }
+
+        if (!detectMob()){
+            navigator.mediaDevices
+                .getUserMedia({ audio: true });
+        }
     </script>
 </head>
 
@@ -20,7 +38,7 @@
             <img class="arjen" src="./arjen.png" />
         </div>
     </a>
-    <a class="mobile" href="./rime.html">
+    <a class="mobile" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
         <div class="content crt">
             <img class="mobileImg" src="./mobile.gif" />
         </div>
