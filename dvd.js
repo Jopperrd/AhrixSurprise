@@ -17,7 +17,7 @@ $(document).ready(async function () {
         yMax = wh - boxTop - boxHeight,
         request = null,
         direction = 'se',
-        speed = 1,
+        speed = 2,
         timeout = null;
         upperColor = currentColor > 13;
 
